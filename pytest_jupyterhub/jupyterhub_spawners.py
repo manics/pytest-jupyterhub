@@ -5,12 +5,12 @@ can be used to test different spawner implementations
 
 import signal
 
-import pytest
+import pytest_asyncio
 from jupyterhub.tests.mocking import MockHub
 from traitlets.config import Config
 
 
-@pytest.fixture
+@pytest_asyncio.fixture
 async def configured_mockhub_instance():
     """
     Creates a MockHub instance from a provided config dict
@@ -40,7 +40,7 @@ async def configured_mockhub_instance():
     return _create_configured_mockhub_instance
 
 
-@pytest.fixture
+@pytest_asyncio.fixture
 async def hub_app(configured_mockhub_instance):
     """
     Creates a MockHub instance from a provided config dict, it then
